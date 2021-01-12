@@ -1,8 +1,10 @@
+""" Majority classifier """
 import numpy as np
 from model import AbstractModel
 
 
 class MajorityClassifier(AbstractModel):
+    """ Majority classifier: classifies everything with the majority label from the training set. """
     def __init__(self):
         super().__init__()
         self.majority_label = None

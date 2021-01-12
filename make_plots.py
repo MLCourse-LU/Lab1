@@ -1,3 +1,4 @@
+""" Make plots to compare the classifiers. """
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -24,6 +25,7 @@ plt.show()
 
 
 def show_performance(features, true_labels, predicted_labels, classifier_name):
+    """ Plot performance of one classifier & show accuracy """
     for index, predicted_label in enumerate(predicted_labels):
         plt.scatter(
                 features[index, 0], features[index, 1],  # X/Y coordinates
@@ -40,21 +42,12 @@ def show_performance(features, true_labels, predicted_labels, classifier_name):
     plt.show()
 
 
-# Theoretical perfect classiffication
+# Theoretical perfect classification
 show_performance(X_test, y_test, y_test, "Theoretical Perfect Classification")
 
 
 # Evaluate the majority classifier
-majority_classifier = MajorityClassifier()
-majority_classifier.fit(x_train=X_train, y_train=y_train)
-majority_prediction = majority_classifier.predict(x_test=X_test)
-show_performance(X_test, y_test, majority_prediction, "Majority Classifier")
-
-
-# # Evaluate the ONN classifier
-# one_nearest_neighbor = OneNearestNeighborClassifier()
-# one_nearest_neighbor.fit(x_train=X_train, y_train=y_train)
-# ONN_prediction = one_nearest_neighbor.predict(x_test=X_test)
-# show_performance(X_test, y_test, ONN_prediction, "1NN Classifier")
-
-
+clf = MajorityClassifier()
+clf.fit(x_train=X_train, y_train=y_train)
+predicted = clf.predict(x_test=X_test)
+show_performance(X_test, y_test, predicted, "Majority Classifier")

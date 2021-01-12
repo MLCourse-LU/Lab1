@@ -1,4 +1,4 @@
-# DO NOT CHANGE ANYTHING IN THIS FILE
+""" Unit tests for the 1NN classifier. Do not change this file. """
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
@@ -11,8 +11,9 @@ np.random.seed(42)
 
 
 def test_one_nearest_neighbor():
-    X, y = generate_data()
-    x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+    """ Unit tests for the 1NN classifier. """
+    x, y = generate_data()
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
     clf = OneNearestNeighborClassifier()
     assert clf.training_labels is None
     assert clf.training_points is None
