@@ -14,7 +14,9 @@ def test_majority():
     X, y = generate_data()
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
     clf = MajorityClassifier()
+    assert clf.majority_label is None
     clf.fit(x_train, y_train)
+    assert clf.majority_label is not None
     pred_test = clf.predict(x_test)
     score = accuracy_score(y_true=y_test, y_pred=pred_test)
     assert score > 0.5
