@@ -5,7 +5,7 @@ import pycodestyle
 
 MAX_LINE_LENGTH = 120
 PYLINT_MINIMUM = 9
-PYLINT_OPTIONS = f'--max-line-length={MAX_LINE_LENGTH} --variable-rgx=[a-z0-9_]{{1,30}}$'
+PYLINT_OPTIONS = f'--max-line-length={MAX_LINE_LENGTH} --variable-rgx=[a-z0-9_]+$'
 PYCODESTYLE_MAXIMUM = 1
 
 
